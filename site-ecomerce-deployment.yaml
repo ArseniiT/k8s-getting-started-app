@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-ecomerce
+  labels:
+    app: site-ecomerce
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: site-ecomerce
+  template:
+    metadata:
+      labels:
+        app: site-ecomerce
+    spec:
+      containers:
+      - name: site-ecomerce
+        image: localhost:5000/todo-app
+        ports:
+        - containerPort: 8080
